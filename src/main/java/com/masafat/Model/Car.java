@@ -1,6 +1,10 @@
 package com.masafat.Model;
 
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 
@@ -15,13 +19,15 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private int id;
-    @Column(name = "user_id")
+    @Column(name = "userid")
     private int userId;
     @Column(name = "passangers")
     private int passangers;
     @Column(name = "created_at")
+    @CreationTimestamp
     private Timestamp createdAt;
     @Column(name = "updated_at")
+    @UpdateTimestamp
     private Timestamp updated_at;
 
     public Car(int userId, int passangers, Timestamp createdAt, Timestamp updated_at) {
